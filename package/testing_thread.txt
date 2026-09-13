@@ -1,0 +1,56 @@
+Gunslugs 3 Rogue Tactics - PortMaster testing
+Porter: Pixelforge ports (Ronax)
+
+Game: https://www.gog.com/en/game/gunslugs_3_rogue_tactics
+Package: Gunslugs3.zip (BYO data; attach the built ZIP to this post)
+
+Install:
+Update PortMaster, put Gunslugs3.zip in its autoinstall folder and open PortMaster.
+Stay online for the Java 17 and Westonpack downloads if needed.
+Supply gunslugs3.dat from your owned Windows build (1.0.10b).
+Destination: <ports directory>/gunslugs3/gunslugs3.dat.
+On muOS: <SD card>/ports/gunslugs3/gunslugs3.dat.
+Download the full Windows offline installer from your GOG library, install it
+on Windows or extract with innoextract, then copy the archive unchanged.
+See the installed gunslugs3.md for the checksum and manual installation instructions.
+
+Controls:
+| Control | Keyboard input / action |
+|---|---|
+| D-pad up | UP / Up / navigate |
+| D-pad down | DOWN / Down / navigate |
+| D-pad left | LEFT / Left / navigate |
+| D-pad right | RIGHT / Right / navigate |
+| A | X / Action / confirm |
+| B | UP / Up / navigate |
+| X | ENTER |
+| Y | Z |
+| L1 | A |
+| R1 | X / Action / confirm |
+| L2 | F1 |
+| R2 | A |
+| Start | O / Options |
+| Select | F1 |
+| Left stick | Same directions as the D-pad |
+| Select + Start | Exit; save through the game first |
+
+Use the game's default keyboard bindings. Start sends **O** for options.
+
+Testing checklist for this build (please include exact device and firmware version):
+[ ] muOS: RG34XX SP / other RGXX device
+[ ] ArkOS / dArkOS: R36S
+[ ] AmberELEC
+[ ] ROCKNIX: specify graphics driver
+[ ] Knulli
+[ ] Other compatible ARM64 firmware
+[ ] 640x480
+[ ] 720x480
+[ ] 720x720
+[ ] 1024x768
+[ ] 1280x720
+
+Please test startup, menus, all controls, sound/music, normal gameplay speed,
+save/reload, suspend/resume and exit. Report performance during actual gameplay.
+
+For failures attach gunslugs3/log.txt and steps to reproduce.
+Do not upload purchased game files, installers or personal information.

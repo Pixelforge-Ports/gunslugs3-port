@@ -1,0 +1,21 @@
+build/
+dist/
+package/gunslugs3/gunslugs3.dat
+package/gunslugs3/runtime/*.jar
+package/gunslugs3/saves/
+package/gunslugs3/cache/
+package/gunslugs3/resolution.txt
+package/gunslugs3/log.txt
+__pycache__/
+*.pyc
+
+# Generated/private content
+ports/
+build/
+dist/
+package/gunslugs3/gunslugs3.dat
+package/gunslugs3/runtime/*-host.jar
+package/gunslugs3/saves/
+package/gunslugs3/cache/
+package/gunslugs3/log.txt
+package/gunslugs3/resolution.txt

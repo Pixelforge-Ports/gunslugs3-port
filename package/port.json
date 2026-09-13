@@ -1,0 +1,42 @@
+{
+  "version": 4,
+  "name": "gunslugs3.zip",
+  "items": [
+    "Gunslugs 3 Rogue Tactics.sh",
+    "gunslugs3"
+  ],
+  "items_opt": [],
+  "attr": {
+    "title": "Gunslugs 3 Rogue Tactics",
+    "porter": [
+      "Pixelforge ports (Ronax)"
+    ],
+    "desc": "Choose stealth or gunfire as you complete missions through procedurally generated enemy territory.",
+    "desc_md": null,
+    "inst": "Install Gunslugs3.zip, then copy your owned gunslugs3.dat into the installed gunslugs3 folder. See gunslugs3.md for supported files and installation steps. Requires compatible 64-bit ARM firmware and PortMaster Java 17 and Westonpack runtimes.",
+    "inst_md": null,
+    "genres": [
+      "action"
+    ],
+    "image": null,
+    "rtr": false,
+    "exp": false,
+    "runtime": [
+      "weston_pkg_0.2.squashfs",
+      "zulu17.54.21-ca-jre17.0.13-linux.squashfs"
+    ],
+    "reqs": [],
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "availability": "paid",
+    "store": [
+      {
+        "name": "GOG",
+        "gameurl": "https://www.gog.com/en/game/gunslugs_3_rogue_tactics",
+        "developerurl": "https://orangepixel.net/"
+      }
+    ]
+  }
+}
