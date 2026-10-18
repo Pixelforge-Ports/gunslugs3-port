@@ -4,7 +4,7 @@
   "script": "Gunslugs 3 Rogue Tactics.sh",
   "zip": "gunslugs3.zip",
   "game_file": "gamedata/gunslugs3.dat",
-  "directories": ["gamedata"],
+  "directories": ["gamedata", "libs.aarch64"],
   "mapping": "gunslugs3.ini",
   "runtime_libraries": true
 }
