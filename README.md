@@ -32,7 +32,17 @@ or `sha256sum "gunslugs3.dat"` on Linux. A different build needs a compatibility
 2. Copy the owned file to **`<ports directory>/gunslugs3/gamedata/gunslugs3.dat`**.
 3. Launch **Gunslugs 3 Rogue Tactics** from your firmware's ports menu.
 
-The launcher detects display size and supports **640x480**, **720x480**, **720x720**, **1024x768**, **1280x720**, and other valid PortMaster dimensions while preserving aspect ratio. If detection is wrong, put the actual size, such as `720x480`, in `gunslugs3/resolution.txt`; use `auto` or remove the file to restore automatic detection.
+The launcher detects display size and supports **640x480**, **720x480**, **720x720**, **1024x768**, **1280x720**, and other valid PortMaster dimensions. Displays narrower than 16:9 use a **3:2 game view** to show more of the surrounding level than a 4:3 or square view. **1280x720** retains the default **16:9** view; wider displays retain the expanded view. Scaling preserves proportions without stretching or cropping.
+
+| Display | Game aspect ratio | Visible game area |
+|---|---|---|
+| 720x480 | 3:2 | 720x480, fills the screen |
+| 640x480 | 3:2 | 640x427, centered with small top/bottom bars |
+| 720x720 | 3:2 | 720x480, centered with 120-pixel top/bottom bars |
+| 1024x768 | 3:2 | 1024x683, centered with small top/bottom bars |
+| 1280x720 | 16:9 | 1280x720, fills the screen |
+
+The game receives a logical 1080x720 view for 3:2 or 1280x720 for 16:9, keeping its vertical scale consistent. Mouse and menu coordinates follow the same scaled viewport. If display detection is wrong, put the actual size, such as `720x480`, in `gunslugs3/resolution.txt`; use `auto` or remove the file to restore automatic detection.
 
 Back up **`gunslugs3/saves/`** before updating. If startup fails, check **`gunslugs3/log.txt`**. When reporting a problem, include the device, firmware version, resolution, reproduction steps, and log. Keep purchased game files private.
 
