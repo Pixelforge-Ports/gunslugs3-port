@@ -13,8 +13,8 @@
     ],
     "desc": "Choose stealth or gunfire as you complete missions through procedurally generated enemy territory.",
     "desc_md": null,
-    "inst": "Install Gunslugs3.zip, then copy your owned gunslugs3.dat into the installed gunslugs3 folder. See gunslugs3.md for supported files and installation steps. Requires compatible 64-bit ARM firmware and PortMaster Java 17 and Westonpack runtimes.",
-    "inst_md": null,
+    "inst": "Install Gunslugs3.zip with PortMaster on compatible 64-bit ARM Linux firmware. Connect to the network for Java 17 and Westonpack if they are not installed. Obtain the full Windows offline backup installer (1.0.10b) from your owned GOG library; install it or extract it with innoextract. Copy the unchanged gunslugs3.dat to <ports directory>/gunslugs3/gamedata/gunslugs3.dat. The supported archive is identified by its SHA-256 fingerprint below; other builds require a compatibility check.",
+    "inst_md": "## Installation\n\nInstall Gunslugs3.zip with PortMaster on compatible 64-bit ARM Linux firmware. Connect to the network for Java 17 and Westonpack if they are not installed. Obtain the full Windows offline backup installer (1.0.10b) from your owned GOG library; install it or extract it with innoextract. Copy the unchanged gunslugs3.dat to <ports directory>/gunslugs3/gamedata/gunslugs3.dat. The supported archive is identified by its SHA-256 fingerprint below; other builds require a compatibility check.\n\n## Supported Windows build\n\nGOG full Windows offline backup installer (1.0.10b) containing a gunslugs3.dat that matches the verified SHA-256 fingerprint below.\n\nThe supported archive SHA-256 is `8e9f0784c8824119ac5572baa09e9d93e317ffd0a6ad3f1de1be4a76e61bebdf`. Keep the original game data intact. Do not include the game files in the PortMaster ZIP or share them.\n",
     "genres": [
       "action"
     ],
@@ -25,18 +25,18 @@
       "weston_pkg_0.2.squashfs",
       "zulu17.54.21-ca-jre17.0.13-linux.squashfs"
     ],
-    "reqs": [],
-    "arch": [
-      "aarch64"
-    ],
-    "min_glibc": "2.27",
-    "availability": "paid",
-    "store": [
+	"store": [
       {
         "name": "GOG",
         "gameurl": "https://www.gog.com/en/game/gunslugs_3_rogue_tactics",
         "developerurl": "https://orangepixel.net/"
       }
-    ]
+    ],
+    "availability": "paid",
+    "reqs": [],
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27"
   }
 }

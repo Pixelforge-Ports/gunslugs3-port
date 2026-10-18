@@ -85,10 +85,18 @@ def main():
                     '-cp', cp, '-d', str(classes), *map(str, sources)], check=True)
     runtime = ROOT/'package/gunslugs3/runtime'
     runtime.mkdir(parents=True, exist_ok=True)
-    with zipfile.ZipFile(runtime/'gunslugs3-host.jar', 'w') as out:
+    host_classes = sorted((classes/'org/portmaster/gunslugs3').rglob('*.class'))
+    if not host_classes:
+        raise SystemExit('No Gunslugs 3 Rogue Tactics host classes were produced')
+    temporary = ROOT/'build/gunslugs3-host.jar.tmp'
+    with zipfile.ZipFile(temporary, 'w') as out:
         # Only adaptation classes ship. Compile declarations and libraries never do.
-        for path in sorted((classes/'org/portmaster/gunslugs3').rglob('*.class')):
+        for path in host_classes:
             add(out, path, path.relative_to(classes).as_posix())
+    with zipfile.ZipFile(temporary) as host:
+        if host.testzip() is not None:
+            raise SystemExit('Generated host JAR failed its archive check')
+    temporary.replace(runtime/'gunslugs3-host.jar')
     package(args.offline)
 
 if __name__ == '__main__':
