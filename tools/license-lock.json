@@ -1,56 +1,41 @@
 [
   {
-    "name": "libgdx-Apache-2.0.txt",
+    "name": "LICENSE-libgdx-Apache-2.0.txt",
     "url": "https://raw.githubusercontent.com/libgdx/libgdx/1.12.1/LICENSE",
     "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
   },
   {
-    "name": "LWJGL-LICENSE.md",
+    "name": "LICENSE-LWJGL.txt",
     "url": "https://raw.githubusercontent.com/LWJGL/lwjgl3/3.3.3/LICENSE.md",
     "sha256": "4c2f770897d0cfda4d9a65bb4d6d6983dccfd57d4c7eb74ea5ded0762cbc0e75"
   },
   {
-    "name": "LGPL-2.1.txt",
+    "name": "LICENSE-LGPL-2.1.txt",
     "url": "https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt",
     "sha256": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95"
   },
   {
-    "name": "jlayer-1.0.1-gdx-source.zip",
-    "url": "https://repo.maven.apache.org/maven2/com/badlogicgames/jlayer/jlayer/1.0.1-gdx/jlayer-1.0.1-gdx-sources.jar",
-    "sha256": "373d47632af7c1cfb16563c3d69774b155e10a73d036f6eca99bd979ecb12329"
-  },
-  {
-    "name": "jorbis-0.0.17-source.zip",
-    "url": "https://repo.maven.apache.org/maven2/org/jcraft/jorbis/0.0.17/jorbis-0.0.17-sources.jar",
-    "sha256": "1643dd368b9c160276caf8d1f6a8c0aae43ca5bf49b53348a2a01623641708e5"
-  },
-  {
-    "name": "openal-soft-license.txt",
+    "name": "LICENSE-OpenAL-Soft.txt",
     "url": "https://build.lwjgl.org/release/3.3.3/bin/lwjgl-openal/openal_soft_license.txt",
     "sha256": "b7993225104d90ddd8024fd838faf300bea5e83d91203eab98e29512acebd69c"
   },
   {
-    "name": "glfw-license.txt",
+    "name": "LICENSE-GLFW.txt",
     "url": "https://build.lwjgl.org/release/3.3.3/bin/lwjgl-glfw/glfw_license.txt",
     "sha256": "12db5bb3f12c0793117746211cfa360a4c5067173b85f330d89552424c56be91"
   },
   {
-    "name": "jemalloc-license.txt",
+    "name": "LICENSE-jemalloc.txt",
     "url": "https://build.lwjgl.org/release/3.3.3/bin/lwjgl-jemalloc/jemalloc_license.txt",
     "sha256": "9daf68c8419f148737e4be0aaf4a9e97b4c2346836bfe2ac57f741cbf94cc3a1"
   },
   {
-    "name": "stb-LICENSE.txt",
+    "name": "LICENSE-stb.txt",
     "url": "https://raw.githubusercontent.com/nothings/stb/master/LICENSE",
     "sha256": "bebfe904b14301657e4e5d655c811d51fd31b97c455b9cc2d8600d6bac6cff63"
   },
   {
-    "name": "openal-soft-1.23.1-source.tar.bz2",
-    "url": "https://openal-soft.org/openal-releases/openal-soft-1.23.1.tar.bz2",
-    "sha256": "796f4b89134c4e57270b7f0d755f0fa3435b90da437b745160a49bd41c845b21"
-  },
-  {
-    "name": "freetype-FTL.txt",
+    "name": "LICENSE-FreeType-FTL.txt",
     "url": "https://raw.githubusercontent.com/freetype/freetype/VER-2-12-1/docs/FTL.TXT",
     "sha256": "08c135755dd589039470f1fdbb400daaabaaa50d0b366d19cebff4d22986baa1"
   }

@@ -27,6 +27,13 @@ def fetch(offline=False, test_natives=False):
    data=urllib.request.urlopen(e['url'],timeout=60).read()
    assert hashlib.sha256(data).hexdigest()==e['sha256'],e['name']
    dest.write_bytes(data)
+ for e in json.loads((ROOT/'tools/source-lock.json').read_text(encoding='utf-8')):
+  dest=ROOT/'tools/third-party-sources'/e['name'];dest.parent.mkdir(parents=True,exist_ok=True)
+  if not dest.exists() or hashlib.sha256(dest.read_bytes()).hexdigest()!=e['sha256']:
+   if offline: raise SystemExit('Missing/corrupt cached LGPL source file: '+str(dest))
+   data=urllib.request.urlopen(e['url'],timeout=60).read()
+   assert hashlib.sha256(data).hexdigest()==e['sha256'],e['name']
+   dest.write_bytes(data)
  print('RUNTIME_OK' ,len(entries),'pinned archives')
 if __name__=='__main__':
  import argparse

@@ -88,7 +88,7 @@ python3 tools/build.py --jdk "/path/to/installed/jdk-17"
 The first build downloads checksum-pinned public compile dependencies. Later builds may add
 `--offline` to use the cache. Handwritten `compile-api/` declarations are compile-only;
 only `org/portmaster/gunslugs3/` host classes go into `gunslugs3-host.jar`.
-Gunslugs 3 also downloads checksum-pinned public ARM64 runtime libraries and their license/source files; `--offline` requires those already cached in the package tree.
+`tools/fetch_runtime.py` downloads checksum-pinned public ARM64 runtime libraries and license notices into `package/`. It keeps pinned LGPL source archives under `tools/third-party-sources/`, outside the release ZIP; its `--offline` mode requires those files to be cached.
 
 The only release artifact is **`dist/Gunslugs3.zip`**, a universal BYO-data ZIP.
 The build also prepares **`ports/gunslugs3/`** in the PortMaster source submission layout.

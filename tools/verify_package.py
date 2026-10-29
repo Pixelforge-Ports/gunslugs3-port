@@ -130,8 +130,16 @@ def verify(root, generated_host=None):
 
     license_root = game+'/licenses/'
     license_names = {name[len(license_root):] for name in files if name.startswith(license_root)}
+    require(bool(license_names) and all(name.startswith('LICENSE-') and name.endswith('.txt')
+            for name in license_names), 'Packaged license files must use LICENSE-<name>.txt')
     require('LICENSE-gunslugs3-host.txt' in license_names and 'LICENSE-libjpeg-turbo.txt' in license_names,
             'Missing host or libjpeg license')
+    source_notice = files[license_root+'LICENSE-LGPL-source-code.txt'].decode('utf-8')
+    require(all(url in source_notice for url in (
+        'https://repo.maven.apache.org/maven2/com/badlogicgames/jlayer/jlayer/1.0.1-gdx/jlayer-1.0.1-gdx-sources.jar',
+        'https://repo.maven.apache.org/maven2/org/jcraft/jorbis/0.0.17/jorbis-0.0.17-sources.jar',
+        'https://openal-soft.org/openal-releases/openal-soft-1.23.1.tar.bz2')),
+        'Missing LGPL source locations')
     host_license = files[license_root+'LICENSE-gunslugs3-host.txt']
     require(b'MIT License' in host_license and b'Permission is hereby granted' in host_license,
             'Invalid host license')
