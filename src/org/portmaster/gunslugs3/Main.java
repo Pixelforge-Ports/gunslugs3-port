@@ -11,6 +11,7 @@ import java.nio.file.*;
 
 /** Native desktop libGDX host. All original game code stays in the owner's jar. */
 public class Main extends myCanvas {
+    private static final int LEGACY_ESCAPE_KEY = 131;
     public final DisplayLayout layout = new DisplayLayout();
     protected Graphics physicalGraphics;
     private GL20 physicalGl;
@@ -21,6 +22,7 @@ public class Main extends myCanvas {
     private long lastFrame;
     private int frames;
     private long start;
+    private final GameFonts gameFonts = new GameFonts();
 
     public static Lwjgl3ApplicationConfiguration configuration() throws Exception {
         int width = Integer.getInteger("gunslugs3.width",640), height = Integer.getInteger("gunslugs3.height",480);
@@ -62,17 +64,28 @@ public class Main extends myCanvas {
         });
         argument_noController = true;
         super.create();
-        InputProcessor input = Gdx.input.getInputProcessor();
-        Gdx.input.setInputProcessor((InputProcessor)Proxy.newProxyInstance(Main.class.getClassLoader(),new Class<?>[]{InputProcessor.class},(self,method,args)-> {
-            if (method.getName().startsWith("touch") || method.getName().equals("mouseMoved")) {
-                args = args.clone(); args[0] = layout.inputX((Integer)args[0]); args[1] = layout.inputY((Integer)args[1]);
-            }
-            return delegate(input,method,args);
-        }));
+        Gdx.input.setInputProcessor(inputBridge(Gdx.input.getInputProcessor(),layout));
         ready = true;
         resize(physicalGraphics.getWidth(),physicalGraphics.getHeight());
         start = System.nanoTime();
         System.out.println("GAME_CREATE_OK offline; PortMaster keyboard input; saves=" + System.getProperty("gunslugs3.saves","saves"));
+    }
+
+    static InputProcessor inputBridge(InputProcessor input,DisplayLayout layout) {
+        return (InputProcessor)Proxy.newProxyInstance(Main.class.getClassLoader(),new Class<?>[]{InputProcessor.class},(self,method,args)-> {
+            String name = method.getName();
+            if ((name.equals("keyDown") || name.equals("keyUp")) && (Integer)args[0] == Input.Keys.ESCAPE) {
+                Object[] legacyArgs = args.clone();
+                legacyArgs[0] = LEGACY_ESCAPE_KEY;
+                boolean legacyHandled = (Boolean)delegate(input,method,legacyArgs);
+                boolean currentHandled = (Boolean)delegate(input,method,args);
+                return legacyHandled || currentHandled;
+            }
+            if (name.startsWith("touch") || name.equals("mouseMoved")) {
+                args = args.clone(); args[0] = layout.inputX((Integer)args[0]); args[1] = layout.inputY((Integer)args[1]);
+            }
+            return delegate(input,method,args);
+        });
     }
 
     @Override public void resize(int width,int height) {
@@ -94,7 +107,9 @@ public class Main extends myCanvas {
         lastFrame = now; // no catch-up updates after a stall/resume
         physicalGl.glDisable(GL20.GL_SCISSOR_TEST);
         physicalGl.glClearColor(0,0,0,1); physicalGl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        gameFonts.prepareFrame();
         super.render();
+        gameFonts.enlargeWhenReady();
         frames++;
         int smoke = Integer.getInteger("gunslugs3.smokeFrames",0);
         if (smoke > 0 && frames >= smoke) {

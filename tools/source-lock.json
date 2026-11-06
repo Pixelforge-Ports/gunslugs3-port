@@ -1,0 +1,17 @@
+[
+  {
+    "name": "jlayer-1.0.1-gdx-source.zip",
+    "url": "https://repo.maven.apache.org/maven2/com/badlogicgames/jlayer/jlayer/1.0.1-gdx/jlayer-1.0.1-gdx-sources.jar",
+    "sha256": "373d47632af7c1cfb16563c3d69774b155e10a73d036f6eca99bd979ecb12329"
+  },
+  {
+    "name": "jorbis-0.0.17-source.zip",
+    "url": "https://repo.maven.apache.org/maven2/org/jcraft/jorbis/0.0.17/jorbis-0.0.17-sources.jar",
+    "sha256": "1643dd368b9c160276caf8d1f6a8c0aae43ca5bf49b53348a2a01623641708e5"
+  },
+  {
+    "name": "openal-soft-1.23.1-source.tar.bz2",
+    "url": "https://openal-soft.org/openal-releases/openal-soft-1.23.1.tar.bz2",
+    "sha256": "796f4b89134c4e57270b7f0d755f0fa3435b90da437b745160a49bd41c845b21"
+  }
+]
