@@ -21,6 +21,7 @@ public class Main extends myCanvas {
     private long lastFrame;
     private int frames;
     private long start;
+    private final GameFonts gameFonts = new GameFonts();
 
     public static Lwjgl3ApplicationConfiguration configuration() throws Exception {
         int width = Integer.getInteger("gunslugs3.width",640), height = Integer.getInteger("gunslugs3.height",480);
@@ -94,7 +95,9 @@ public class Main extends myCanvas {
         lastFrame = now; // no catch-up updates after a stall/resume
         physicalGl.glDisable(GL20.GL_SCISSOR_TEST);
         physicalGl.glClearColor(0,0,0,1); physicalGl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        gameFonts.prepareFrame();
         super.render();
+        gameFonts.enlargeWhenReady();
         frames++;
         int smoke = Integer.getInteger("gunslugs3.smokeFrames",0);
         if (smoke > 0 && frames >= smoke) {

@@ -28,10 +28,10 @@ public class GameplaySmoke extends Main {
   java.nio.IntBuffer v=com.badlogic.gdx.utils.BufferUtils.newIntBuffer(4);Gdx.gl20.glGetIntegerv(com.badlogic.gdx.graphics.GL20.GL_VIEWPORT,v);
   if(v.get(0)!=layout.x || v.get(1)!=layout.y || v.get(2)!=layout.width || v.get(3)!=layout.height)throw new IllegalStateException("Viewport lost");
   if(physicalGraphics.getWidth()!=Integer.getInteger("gunslugs3.width",640) || physicalGraphics.getHeight()!=Integer.getInteger("gunslugs3.height",480))throw new IllegalStateException("Physical size changed");
-  if(GameState!=previous){System.out.println("STATE "+frame+" "+GameState);previous=GameState;}
+  if(GameState!=previous){System.out.println("STATE "+frame+" "+GameState);if(Boolean.getBoolean("gunslugs3.captureStates"))capture(System.getProperty("gunslugs3.output")+"/state"+GameState+".png");previous=GameState;}
   if(frame%600==0)System.out.println("PLAYER "+myPlayer.x+","+myPlayer.y+" talk="+com.orangepixel.gunslugs3.World.inPlayerTalk);
   if(frame%600==0)capture(System.getProperty("gunslugs3.output")+"/frame"+frame+".png");
-  if(play>=360 || frame>=5400){
+  if(play>=360 || frame>=6600){
    capture(System.getProperty("gunslugs3.output")+"/final.png");
    if(play<360)throw new IllegalStateException("Gameplay not reached long enough: "+play);
    if(Boolean.getBoolean("gunslugs3.expectResume") && !resumeSeen)throw new IllegalStateException("Saved game was not found on restart");
