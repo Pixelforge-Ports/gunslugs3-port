@@ -120,8 +120,19 @@ def verify(root, generated_host=None):
             'Launcher must validate and run the game JAR from gamedata/')
     controls = configparser.ConfigParser(interpolation=None, strict=True)
     controls.read_string(files[mapping_name].decode('utf-8'))
-    require(controls['controls']['start'] == 'o', 'Start must open options')
-    require(controls['controls'].get('overlay') == 'clear', 'Explicit root controls required')
+    control_map = controls['controls']
+    require(control_map.get('overlay') == 'clear', 'Explicit root controls required')
+    for key, value in {
+        'a': 'a', 'b': 'z', 'x': 'x', 'y': 'up',
+        'l1': 'up', 'r1': 'x', 'l2': 'z', 'r2': 'tab',
+        'start': 'enter', 'back': 'esc',
+        'up': 'up', 'left_analog_up': 'up',
+        'down': 'down', 'left_analog_down': 'down',
+        'left': 'left', 'left_analog_left': 'left',
+        'right': 'right', 'left_analog_right': 'right',
+    }.items():
+        require(control_map.get(key) == value, f'Wrong controller mapping for {key}')
+    require('export HOTKEY=back' in launcher, 'PortMaster force-close hotkey is not enabled')
     for section in controls.sections():
         for key, value in controls[section].items():
             require(not key.endswith('_hk'), 'Use a v2 hotkey state')

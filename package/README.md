@@ -28,21 +28,20 @@ Back up **`gunslugs3/saves/`** before updating. If startup fails, check **`gunsl
 
 | Control | Keyboard input / action |
 |---|---|
-| D-pad up | UP / Up / navigate |
-| D-pad down | DOWN / Down / navigate |
-| D-pad left | LEFT / Left / navigate |
-| D-pad right | RIGHT / Right / navigate |
-| A | X / Action / confirm |
-| B | UP / Up / navigate |
-| X | ENTER |
-| Y | Z |
-| L1 | A |
-| R1 | X / Action / confirm |
-| L2 | F1 |
-| R2 | A |
-| Start | O / Options |
-| Select | F1 |
-| Left stick | Same directions as the D-pad |
+| D-pad / left stick | Arrow keys |
+| A | A: use / interact |
+| B | Z: swap weapon |
+| X | X: shoot / menu confirm |
+| y | Up: jump |
+| L1 | Up |
+| R1 | X |
+| L2 | Z |
+| R2 | Tab |
+| Start | Enter |
+| Back / Select | Escape |
 | Select + Start | Exit; save through the game first |
 
-Use the game's default keyboard bindings. Start sends **O** for options.
+These bindings are supplied by gptokeyb2 through `gunslugs3.ini`. The supported
+Windows build uses arrow keys, Shoot X, Cancel Escape, Swap Weapon Z, Use A, and
+Pause Tab. Use X or Start to confirm menus.
+The Select + Start combination invokes PortMaster's force-close shortcut.

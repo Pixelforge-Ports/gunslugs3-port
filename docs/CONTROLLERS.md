@@ -1,18 +1,14 @@
 # Controller support
 
-All input is supplied through PortMaster's gptokeyb2 and the shipped `.ini` mapping.
-Update PortMaster before installing. Native Xbox 360 emulation is not enabled in this
-host: its native controller path is disabled. The mapper's `-x` mode replaces keyboard
-and mouse output and requires a working native controller backend in the game.
-Do not add `-x` to this launcher; it would bypass the controls listed above.
+The launcher starts PortMaster's gptokeyb2 in keyboard-mapping mode using
+`gunslugs3.ini`. The D-pad and left stick send arrow keys. The configured
+gptokeyb buttons send: `a` → A, `b` → Z, `x` → X, and `y` → Up. L1 sends Up,
+R1 sends X, L2 sends Z, R2 sends Tab, Start sends Enter, and Back sends Escape.
+Start + Select remains PortMaster's force-close shortcut.
 
-Reviewed against the supplied PortMaster complete reference and gptokeyb2
-upstream revision 7100d030fe10a7cd5f3053cd9922249498ab3a8d.
+The GOG Controls screen lists arrow keys, Shoot X, Cancel Escape, Swap Weapon Z,
+Use R, and Pause Tab. This file records the requested gptokeyb mappings exactly.
 
-- https://github.com/PortsMaster/gptokeyb2/blob/master/ADVANCED_USAGE.md
-- https://github.com/PortsMaster/gptokeyb2/blob/master/src/main.c
-
-Native controller support would require a separate host/backend implementation
-and device tests for menu navigation, gameplay, input duplication and exit.
-The presence of controller support in the original Windows game alone does not
-verify that its controller backend runs in this ARM64 Java port.
+The launcher's `HOTKEY=back` setting keeps the PortMaster exit hotkey enabled.
+Do not add gptokeyb2's `-x` mode: this port uses keyboard input rather than the
+game's native controller path.

@@ -77,7 +77,7 @@ if [[ "$TEST_GAME" == mewnbase ]]; then printf '1.0.1' > "$TEST_ROOT/ports/mewnb
 exit 0
 ''')
     write(fixtures/'probes/mapper','''#!/bin/bash
-[[ "$TEST_MAPPER" == 1 && "$1" == java && "$2" == -c && "$3" == */"$TEST_MAPPING" ]] || exit 2
+[[ "$TEST_MAPPER" == 1 && "$1" == java && "$2" == -c && "$3" == */"$TEST_MAPPING" && "$#" == 3 ]] || exit 2
 echo mapper >> "$TEST_ROOT/events"
 exec /usr/bin/sleep 0.1
 ''')
